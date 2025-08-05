@@ -1,0 +1,8 @@
+{
+    "name": "chayaneep/dtn_b",
+    "description": "project dashborad",
+    "type": "y",
+    "require": {
+        "mpdf/mpdf": "^8.2"
+    }
+}
