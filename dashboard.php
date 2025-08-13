@@ -62,25 +62,7 @@ $avgPercent = count($items) ? round(array_sum(array_column($items, 'percentage')
         <?php endforeach; ?>
     </select>
 
-    <!-- ปุ่ม Export -->
-    <!-- <div class="btn-group ms-2">
-        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Export Excel</button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="export_excel.php?year=<?php echo $selectedYear; ?>&type=items">เฉพาะ Items</a></li>
-            <li><a class="dropdown-item" href="export_excel.php?year=<?php echo $selectedYear; ?>&type=detail">เฉพาะ Detail</a></li>
-            <li><a class="dropdown-item" href="export_excel.php?year=<?php echo $selectedYear; ?>&type=full">รวม Items + Detail</a></li>
-        </ul>
-    </div> -->
-
-    <div class="btn-group ms-2">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown">Export PDF</button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="export_pdf.php?year=<?php echo $selectedYear; ?>&type=items">เฉพาะ Items</a></li>
-            <li><a class="dropdown-item" href="export_pdf.php?year=<?php echo $selectedYear; ?>&type=detail">เฉพาะ Detail</a></li>
-            <li><a class="dropdown-item" href="export_pdf.php?year=<?php echo $selectedYear; ?>&type=full">รวม Items + Detail</a></li>
-        </ul>
-    </div>
-</form>
+    </form>
 
 
     <!-- Summary Cards -->
@@ -92,9 +74,10 @@ $avgPercent = count($items) ? round(array_sum(array_column($items, 'percentage')
 
     <!-- ตาราง budget_items -->
     <div class="card p-3 mb-4">
-        <h4>📋 รายการงบประมาณ</h4>
+        <h4>📋 รายการงบประมาณ</h4>  <button class="btn btn-info btn-sm" onclick="window.location.href='index.php'">รายละเอียดโครงการ</button>
+
         <table class="table table-bordered table-striped mt-3">
-            <thead class="table-dark"><tr><th>หมวด</th><th>ขอ</th><th>อนุมัติ</th><th>%</th><th>รายละเอียด</th></tr></thead>
+            <thead class="table-dark"><tr><th>หมวด</th><th>ขอ</th><th>อนุมัติ</th><th>%</th></tr></thead>
             <tbody>
             <?php foreach($items as $row): ?>
                 <tr>
@@ -102,9 +85,9 @@ $avgPercent = count($items) ? round(array_sum(array_column($items, 'percentage')
                     <td><?php echo number_format($row['requested_amount'], 2); ?></td>
                     <td><?php echo number_format($row['approved_amount'], 2); ?></td>
                     <td><?php echo $row['percentage']; ?>%</td>
-                    <td>
+                   <!--  <td>
                     <button class="btn btn-info btn-sm" onclick="loadDetail(<?php echo $row['id']; ?>, '<?php echo htmlspecialchars($row['item_name'], ENT_QUOTES); ?>')">ดู</button>
-                    </td>
+                    </td> -->
                 </tr>
             <?php endforeach; ?>
             </tbody>
